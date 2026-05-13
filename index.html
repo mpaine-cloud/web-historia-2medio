@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guía interactiva de Historia para 2° Medio. Aprende sobre la Crisis de 1929, los regímenes totalitarios, la Segunda Guerra Mundial y el Holocausto mientras subes de nivel.">
+<meta name="keywords" content="Historia, 2 Medio, Crisis 1929, Totalitarismo, Segunda Guerra Mundial, Holocausto, MINEDUC, Chile">
+<meta name="author" content="Liceo Municipal de Nacimiento">
+<meta property="og:title" content="Historia 2M — Nivel UP 📚">
+<meta property="og:description" content="Guía interactiva sobre Crisis, Totalitarismo y Guerra. Estudia y ponte a prueba con el Quiz.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://historia-2medio.vercel.app/">
+<meta property="og:image" content="https://historia-2medio.vercel.app/og-image.png">
+<title>Historia 2M — Nivel UP 📚</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <div class="logo">📚 HIST2M</div>
+  <div id="xp-bar-wrap">
+    <div id="xp-label">XP: <span id="xp-val">0</span>/200</div>
+    <div id="xp-track"><div id="xp-fill"></div></div>
+    <div id="level-badge">Nv. <span id="lvl-val">1</span></div>
+  </div>
+  <div id="streak-badge">🔥 <span id="streak-val">0</span></div>
+</div>
+
+<!-- SIDENAV -->
+<nav id="sidenav">
+  <a class="nav-pill active" href="#hero" data-section="hero"><span class="dot"></span>Inicio</a>
+  <a class="nav-pill" href="#crisis" data-section="crisis"><span class="dot"></span>Crisis 1929</a>
+  <a class="nav-pill" href="#totalitarismos" data-section="totalitarismos"><span class="dot"></span>Totalitarismos</a>
+  <a class="nav-pill" href="#sgm" data-section="sgm"><span class="dot"></span>La Guerra</a>
+  <a class="nav-pill" href="#holocausto" data-section="holocausto"><span class="dot"></span>Holocausto</a>
+  <a class="nav-pill" href="#consecuencias-sgm" data-section="consecuencias-sgm"><span class="dot"></span>Consecuencias</a>
+  <a class="nav-pill" href="#quiz-section" data-section="quiz-section"><span class="dot"></span>Quiz ⚡</a>
+</nav>
+
+<!-- XP TOAST -->
+<div class="xp-toast" id="xp-toast">+10 XP ✓</div>
+<div class="streak-toast" id="streak-toast">🔥 ¡Racha x<span id="st-count">2</span>!</div>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" class="section">
+  <div class="hero-tag">Historia &amp; CS · 2° Medio · Unidad 1</div>
+  <h1 class="hero-title">
+    <span class="hl-r">Crisis,</span><br>
+    <span class="hl-y">Totalitarismo</span><br>
+    y <span class="hl-b">Guerra</span> Mundial
+  </h1>
+  <p class="hero-sub">Primera mitad del siglo XX — cómo la economía se derrumbó, los dictadores tomaron el poder y el mundo entró en su peor conflicto. Sube de nivel mientras estudias.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="big" style="color:var(--red)">60M+</div><div class="lbl">Muertos SGM</div></div>
+    <div class="hero-stat"><div class="big" style="color:var(--yellow)">1929</div><div class="lbl">Crack bursátil</div></div>
+    <div class="hero-stat"><div class="big" style="color:var(--blue)">23</div><div class="lbl">Países en guerra</div></div>
+    <div class="hero-stat"><div class="big" style="color:var(--purple)">6M</div><div class="lbl">Víctimas Holocausto</div></div>
+  </div>
+  <div class="hero-cta-row">
+    <a href="#crisis" class="btn-primary">Empezar 🚀</a>
+    <a href="#quiz-section" class="btn-ghost">Ir al Quiz ⚡</a>
+  </div>
+</section>
+
+<!-- PROGRESS TRACKER -->
+<div class="progress-section fade-up">
+  <h3>📋 Mi progreso</h3>
+  <div class="progress-items">
+    <div class="prog-item"><div class="prog-check" data-xp="10" onclick="checkItem(this)"></div><span>Crisis de 1929 y sus causas</span><span class="pts">+10 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="10" onclick="checkItem(this)"></div><span>Consecuencias económicas y sociales</span><span class="pts">+10 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="15" onclick="checkItem(this)"></div><span>Características de los totalitarismos</span><span class="pts">+15 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="15" onclick="checkItem(this)"></div><span>Nazismo, Fascismo y Estalinismo</span><span class="pts">+15 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="20" onclick="checkItem(this)"></div><span>Causas y alianzas de la SGM</span><span class="pts">+20 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="20" onclick="checkItem(this)"></div><span>Cronología 1939–1945</span><span class="pts">+20 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="25" onclick="checkItem(this)"></div><span>Holocausto y crímenes de guerra</span><span class="pts">+25 XP</span></div>
+    <div class="prog-item"><div class="prog-check" data-xp="15" onclick="checkItem(this)"></div><span>ONU y Declaración Universal DDHH</span><span class="pts">+15 XP</span></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ CRISIS 1929 ═══ -->
+<section id="crisis" class="section fade-up">
+  <div class="sec-tag" style="color:var(--yellow)">⚡ OA2 · módulo 01</div>
+  <h2 class="sec-title">La Crisis de <span style="color:var(--yellow)">1929</span></h2>
+  <p class="sec-intro">Después de la Primera Guerra Mundial, la economía de EE.UU. voló alto durante los "Años Locos". Pero todo era una burbuja — y las burbujas explotan.</p>
+
+  <div class="accordion">
+    <div class="acc-item open">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>📈 Los Años Locos (1920s) — El auge</span>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="acc-tag" style="background:var(--green-dim);color:var(--green);border:1px solid var(--green)">Boom</span>
+          <span class="acc-arrow">▼</span>
+        </div>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>La economía norteamericana creció de manera espectacular. El consumo, las compras a crédito y la inversión en bolsa aumentaron enormemente. Los inversores compraban acciones apostando a que subirían al día siguiente — <strong>burbuja especulativa</strong>.</p>
+        <p style="margin-top:0.5rem">El problema: nadie preguntaba si los precios de las acciones reflejaban la realidad de las empresas. Los inversores estaban tan dentro de la burbuja que no veían el peligro inminente.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>💥 El Jueves Negro — 24 Oct. 1929</span>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="acc-tag" style="background:var(--red-dim);color:var(--red);border:1px solid var(--red)">Colapso</span>
+          <span class="acc-arrow">▼</span>
+        </div>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+        <p>El 24 de octubre de 1929, la Bolsa de Nueva York colapsó. El pánico se apoderó de los inversores: todos quisieron vender al mismo tiempo. Los precios se desplomaron en horas, los bancos quebraron y millones perdieron sus ahorros de un día para otro.</p>
+        <p style="margin-top:0.5rem"><strong>Chile</strong> fue el país más golpeado del mundo según la Liga de las Naciones, porque su economía dependía del salitre, cuyo precio se derrumbó.</p>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>📉 Consecuencias económicas y sociales</span>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="acc-tag" style="background:var(--orange-dim);color:var(--orange);border:1px solid var(--orange)">Impacto</span>
+          <span class="acc-arrow">▼</span>
+        </div>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+        <ul>
+          <li><strong>Económicas:</strong> Bajada de precios, cierre de empresas y granjas, desempleo masivo, pérdida de capacidad adquisitiva</li>
+          <li><strong>Sociales:</strong> Aumento de la mortalidad, mendicidad y delincuencia; brecha entre ricos y pobres se dispara; disminuye la natalidad</li>
+          <li><strong>Políticas:</strong> Descrédito de los sistemas democráticos → auge de los fascismos y totalitarismos</li>
+          <li><strong>Chile:</strong> Fin del ciclo del salitre; miles de desempleados del norte migraron a las ciudades</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>🏗️ El New Deal — las medidas adoptadas</span>
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="acc-tag" style="background:var(--teal-dim);color:var(--teal);border:1px solid var(--teal)">Solución</span>
+          <span class="acc-arrow">▼</span>
+        </div>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+        <ul>
+          <li><strong>Laborales:</strong> Aumento de salarios para estimular la demanda; reducción de la jornada laboral; salario mínimo</li>
+          <li><strong>Productivas:</strong> Reducción de cosechas a cambio de indemnizaciones; fijación de precios mínimos agrícolas; cuotas</li>
+          <li><strong>Sociales:</strong> Seguro de paro, pensiones de jubilación, grandes obras públicas para dar empleo a los parados</li>
+        </ul>
+        <p style="margin-top:0.6rem">Estas medidas consolidaron la idea del <strong>Estado de Bienestar</strong> — el Estado debe intervenir activamente en la economía y proteger a los ciudadanos.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TOTALITARISMOS ═══ -->
+<section id="totalitarismos" class="section fade-up">
+  <div class="sec-tag" style="color:var(--red)">🔴 OA2 · módulo 02</div>
+  <h2 class="sec-title">Los Regímenes <span style="color:var(--red)">Totalitarios</span></h2>
+  <p class="sec-intro">La crisis del '29 derrumbó la confianza en la democracia. En ese vacío, surgieron líderes que prometían soluciones radicales — y llegaron al poder por las urnas.</p>
+
+  <div class="regime-grid">
+    <div class="regime-card" style="border-color:rgba(255,92,92,0.3)">
+      <div class="rc-header">
+        <div class="rc-icon" style="background:var(--red-dim);color:var(--red)">⚔️</div>
+        <div>
+          <h3 style="color:var(--red)">Nazismo</h3>
+          <div class="country-tag">Alemania · 1933–1945</div>
+        </div>
+      </div>
+      <p>Encabezado por Adolf Hitler (jefe nazi desde 1921). Pretendía crear un Estado "racialmente puro". La cruz esvástica y el terror fueron sus símbolos. Provocó el mayor exterminio sistemático de la Historia: el Holocausto.</p>
+      <div class="leader-row" style="color:var(--red)">
+        <span>👤</span> Adolf Hitler
+      </div>
+    </div>
+
+    <div class="regime-card" style="border-color:rgba(251,146,60,0.3)">
+      <div class="rc-header">
+        <div class="rc-icon" style="background:var(--orange-dim);color:var(--orange)">⚡</div>
+        <div>
+          <h3 style="color:var(--orange)">Fascismo</h3>
+          <div class="country-tag">Italia · 1922–1943</div>
+        </div>
+      </div>
+      <p>Régimen militar, antiparlamentario, antidemocrático y nacionalista con tendencias imperialistas. Benito Mussolini cerró el parlamento en 1925. Su mandato cayó en 1943 dejando ~460.000 muertos y 530.000 prisioneros.</p>
+      <div class="leader-row" style="color:var(--orange)">
+        <span>👤</span> Benito Mussolini
+      </div>
+    </div>
+
+    <div class="regime-card" style="border-color:rgba(74,158,255,0.3)">
+      <div class="rc-header">
+        <div class="rc-icon" style="background:var(--blue-dim);color:var(--blue)">★</div>
+        <div>
+          <h3 style="color:var(--blue)">Estalinismo</h3>
+          <div class="country-tag">URSS · 1929–1953</div>
+        </div>
+      </div>
+      <p>Encabezado por Joseph Stalin. Comenzó liquidando a los "campesinos prósperos" para controlar la agricultura. Millones murieron de hambruna. Con enormes sacrificios convirtió a Rusia en potencia mundial.</p>
+      <div class="leader-row" style="color:var(--blue)">
+        <span>👤</span> Joseph Stalin
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin:2rem 0 1rem">⚙️ Características de los totalitarismos</h3>
+  <div class="char-grid-v2">
+    <div class="char-item-v2"><div class="char-num-v2">01</div><div><strong>Partido único</strong><p>No hay pluripartidismo. El partido gobernante clausura o suspende a los demás.</p></div></div>
+    <div class="char-item-v2"><div class="char-num-v2">02</div><div><strong>Líder fuerte y central</strong><p>Culto a la personalidad del líder. Su oposición = represión o muerte.</p></div></div>
+    <div class="char-item-v2"><div class="char-num-v2">03</div><div><strong>Control total del Estado</strong><p>Sin separación de poderes. Domina política, economía, educación y cultura.</p></div></div>
+    <div class="char-item-v2"><div class="char-num-v2">04</div><div><strong>Propaganda masiva</strong><p>Controla los medios de comunicación para moldear la opinión pública.</p></div></div>
+    <div class="char-item-v2"><div class="char-num-v2">05</div><div><strong>Sin libertades individuales</strong><p>Se priva a los ciudadanos de su libertad. Censura total de la información.</p></div></div>
+    <div class="char-item-v2"><div class="char-num-v2">06</div><div><strong>Control de la economía</strong><p>El Estado dirige la economía. No hay libre mercado real ni autonomía empresarial.</p></div></div>
+  </div>
+
+  <div class="highlight-v2">
+    <strong>🔑 Diferencia clave:</strong> El <strong>autoritarismo</strong> concentra el poder pero no controla todos los aspectos de la vida (ej: Franco, Pinochet). El <strong>totalitarismo</strong> controla TODO: política, economía, educación, cultura y medios — mediante partido único, propaganda y líder absoluto (ej: Hitler, Mussolini, Stalin).
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin:2rem 0 1rem">📊 Autoritarismo vs. Totalitarismo</h3>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead><tr>
+        <th>Dimensión</th>
+        <th>✅ Autoritarismo</th>
+        <th>🔴 Totalitarismo</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Control social</td><td class="aut-col">Solo lo político; vida privada relativamente libre</td><td class="tot-col">Total: política, economía, educación, cultura, medios</td></tr>
+        <tr><td>Partido político</td><td class="aut-col">Puede haber partidos limitados o ninguno</td><td class="tot-col">Partido único; los demás son clausurados</td></tr>
+        <tr><td>Ideología</td><td class="aut-col">No necesariamente totalizante</td><td class="tot-col">Ideología oficial que penetra toda la sociedad</td></tr>
+        <tr><td>Propaganda</td><td class="aut-col">Limitada</td><td class="tot-col">Masiva y sistemática; controla la opinión</td></tr>
+        <tr><td>Ejemplos</td><td class="aut-col">Franco (España), Pinochet (Chile)</td><td class="tot-col">Hitler, Mussolini, Stalin</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SGM ═══ -->
+<section id="sgm" class="section fade-up">
+  <div class="sec-tag" style="color:var(--orange)">💣 OA3 · módulo 03</div>
+  <h2 class="sec-title">La Segunda <span style="color:var(--orange)">Guerra Mundial</span></h2>
+  <p class="sec-intro">1939–1945. 23 países. 5 continentes. Más de 60 millones de muertos. El mayor conflicto armado de la Historia humana.</p>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem">🔗 Las Alianzas</h3>
+  <div class="alliance-grid-v2">
+    <div class="alliance-box-v2 eje">
+      <h3>EL EJE</h3>
+      <div class="countries-tag">Roma · Berlín · Tokio</div>
+      <p>Italia (dictadura fascista), Alemania (nazismo) y Japón (régimen imperial militarista). Los tres tenían en común un gobierno dictatorial que violaba los DDHH constantemente.</p>
+    </div>
+    <div class="alliance-box-v2 aliados">
+      <h3>LOS ALIADOS</h3>
+      <div class="countries-tag">Francia · Inglaterra · URSS · EE.UU.</div>
+      <p>Inicialmente Francia e Inglaterra. La URSS se sumó tras la Operación Barbaroja (1941). EE.UU. ingresó tras el ataque japonés a Pearl Harbor (7 dic. 1941).</p>
+    </div>
+  </div>
+
+  <div class="article-quote">
+    <p>"El gobierno de Hitler estaba obsesionado en que Alemania recuperara los territorios perdidos durante la Primera Guerra Mundial. Consideraba que el Tratado de Versalles era injusto."</p>
+    <cite>Guía de trabajo · 2° Araucaría · Profesora Tatiana Carrasco</cite>
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin:2rem 0 1rem">🗓️ Cronología del conflicto</h3>
+  <div class="timeline-v2">
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--purple-dim);color:var(--purple)">1939</span></div>
+      <div class="tl-line-col">
+        <div class="tl-card"><h4>Inicio de la guerra</h4><p>Alemania invade Polonia. Inglaterra y Francia le declaran la guerra a Alemania.</p></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--orange-dim);color:var(--orange)">1940</span></div>
+      <div class="tl-line-col">
+        <div class="tl-card"><h4>Avance alemán en Europa</h4><p>Alemania invade y ocupa Dinamarca, Noruega, Luxemburgo, Bélgica, Holanda y Francia. Comienza el ataque a Inglaterra.</p></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--blue-dim);color:var(--blue)">1941</span></div>
+      <div class="tl-line-col">
+        <div class="tl-card"><h4>EE.UU. entra a la guerra</h4><p>Alemania ocupa Yugoslavia y Grecia. Operación Barbaroja contra la URSS. Japón ataca Pearl Harbor. EE.UU. entra a la guerra.</p></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--green-dim);color:var(--green)">1942</span></div>
+      <div class="tl-line-col">
+        <div class="tl-card"><h4>Punto de inflexión</h4><p>Estancamiento alemán en la URSS. Las fuerzas ítalo-alemanas son derrotadas en El Alamein (norte de África). Japón es derrotado en Midway.</p></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--teal-dim);color:var(--teal)">1943</span></div>
+      <div class="tl-line-col">
+        <div class="tl-card"><h4>La marea cambia</h4><p>Capitulación alemana en Stalingrado. Los Aliados invaden Italia. Cae el régimen fascista de Mussolini.</p></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--pink-dim);color:var(--pink)">1944</span></div>
+      <div class="tl-line-col">
+        <div class="tl-card"><h4>El Día D</h4><p>Desembarco aliado en Normandía, Francia. Liberación de París. Las fuerzas soviéticas avanzan por el este de Europa.</p></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year-col"><span class="tl-year" style="background:var(--red-dim);color:var(--red)">1945</span></div>
+      <div class="tl-line-col" style="border-left-color:transparent">
+        <div class="tl-card" style="border-color:rgba(255,92,92,0.4)"><h4>Fin de la guerra</h4><p>Hitler se suicida. Alemania se rinde. EE.UU. lanza bombas atómicas sobre Hiroshima y Nagasaki. Japón se rinde. Fin de la SGM.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ HOLOCAUSTO ═══ -->
+<section id="holocausto" class="section fade-up">
+  <div class="sec-tag" style="color:var(--red)">⚠️ OA3 · módulo 04</div>
+  <h2 class="sec-title">El <span style="color:var(--red)">Holocausto</span></h2>
+  <p class="sec-intro">El exterminio sistemático más grande de la Historia. Un crimen que la humanidad no puede olvidar.</p>
+
+  <div class="stats-row-v2">
+    <div class="stat-card"><span class="big" style="color:var(--red)">6M</span><div class="lbl">Judíos asesinados en el Holocausto</div></div>
+    <div class="stat-card"><span class="big" style="color:var(--orange)">11M</span><div class="lbl">Total de víctimas del exterminio nazi</div></div>
+    <div class="stat-card"><span class="big" style="color:var(--yellow)">1979</span><div class="lbl">Auschwitz, Patrimonio de la Humanidad</div></div>
+    <div class="stat-card"><span class="big" style="color:var(--muted)">1945</span><div class="lbl">Fin del nazismo y la SGM</div></div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-accent" style="background:var(--red)"></div>
+      <div class="card-icon">🏛️</div>
+      <h3>Auschwitz-Birkenau</h3>
+      <p>Enorme complejo de campos de concentración y exterminio construido por la Alemania nazi en Polonia. Más de un millón de judíos fueron asesinados allí, además de miles de otras víctimas.</p>
+      <span class="chip" style="background:var(--red-dim);color:var(--red);border:1px solid var(--red)">Campo de exterminio</span>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:var(--orange)"></div>
+      <div class="card-icon">⚗️</div>
+      <h3>El Método</h3>
+      <p>El método más utilizado fueron las cámaras de gas que simulaban ser duchas. También se usaron fusilamientos masivos, experimentos médicos, trabajo esclavo y hambre deliberada.</p>
+      <span class="chip" style="background:var(--orange-dim);color:var(--orange);border:1px solid var(--orange)">Exterminio sistemático</span>
+    </div>
+    <div class="card">
+      <div class="card-accent" style="background:var(--purple)"></div>
+      <div class="card-icon">🌍</div>
+      <h3>Las Víctimas</h3>
+      <p>Judíos principalmente, pero también rusos, polacos, ucranianos, serbios, gitanos, franceses, belgas, homosexuales, discapacitados, prisioneros de guerra y minorías religiosas.</p>
+      <span class="chip" style="background:var(--purple-dim);color:var(--purple);border:1px solid var(--purple)">11M de víctimas totales</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONSECUENCIAS SGM ═══ -->
+<section id="consecuencias-sgm" class="section fade-up">
+  <div class="sec-tag" style="color:var(--teal)">🌐 OA4 · módulo 05</div>
+  <h2 class="sec-title">Consecuencias de la <span style="color:var(--teal)">SGM</span></h2>
+  <p class="sec-intro">La guerra rediseñó el mundo: nuevas superpotencias, nuevas instituciones internacionales, nuevos derechos.</p>
+
+  <div class="cons-grid">
+    <div class="cons-card"><div class="num">01 / POLÍTICA</div><h4>🦅 EE.UU. y la URSS como superpotencias</h4><p>Europa quedó devastada y perdió su hegemonía. EE.UU. y la URSS emergieron como dos polos rivales → inicio de la <strong>Guerra Fría</strong>.</p></div>
+    <div class="cons-card"><div class="num">02 / INSTITUCIONES</div><h4>🏛️ Creación de la ONU</h4><p>El 26 de junio de 1945 en San Francisco, 50 países firmaron la Carta de la ONU para evitar futuros conflictos entre naciones. Entra en vigor en octubre de 1945.</p></div>
+    <div class="cons-card"><div class="num">03 / DERECHOS</div><h4>📜 Declaración Universal de DDHH</h4><p>En 1948, la ONU proclamó la DUDH: garantía de los derechos de todas las personas. Artículo 1°: todos nacen libres e iguales en dignidad.</p></div>
+    <div class="cons-card"><div class="num">04 / COLONIAS</div><h4>🗺️ Inicio de la descolonización</h4><p>Muchos territorios de Asia y África aprovecharon el debilitamiento de las potencias europeas para buscar su independencia.</p></div>
+    <div class="cons-card"><div class="num">05 / ECONOMÍA</div><h4>💰 Estado de Bienestar</h4><p>La guerra exigió mayor intervención del Estado en la economía y la sociedad. Este modelo se consolidó en el mundo occidental de posguerra.</p></div>
+    <div class="cons-card"><div class="num">06 / TECNOLOGÍA</div><h4>☢️ Era nuclear</h4><p>El uso de bombas atómicas en Hiroshima y Nagasaki inauguró la amenaza nuclear como factor determinante de las relaciones internacionales.</p></div>
+  </div>
+
+  <div class="article-quote" style="border-color:var(--teal);background:var(--teal-dim)">
+    <p>"Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como lo están de razón y conciencia, deben comportarse fraternalmente los unos con los otros."</p>
+    <cite>Artículo 1° — Declaración Universal de los Derechos Humanos, 1948</cite>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ QUIZ ═══ -->
+<section id="quiz-section" class="section fade-up">
+  <div class="sec-tag" style="color:var(--yellow)">⚡ QUIZ · sube de nivel</div>
+  <h2 class="sec-title">Pon a prueba<br><span style="color:var(--yellow)">tu conocimiento</span></h2>
+  <p class="sec-intro">Responde correctamente para ganar XP y subir de nivel. ¡Cada respuesta correcta seguida aumenta tu racha!</p>
+
+  <div id="quiz-container"></div>
+  <div id="quiz-result" style="display:none;text-align:center;padding:2rem">
+    <div style="font-size:3rem;margin-bottom:0.5rem">🏆</div>
+    <div style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--yellow)" id="result-score"></div>
+    <div style="color:var(--muted);font-size:0.9rem;margin-top:0.3rem" id="result-msg"></div>
+    <button class="btn-primary" style="margin-top:1.5rem" onclick="restartQuiz()">Volver a intentarlo 🔄</button>
+  </div>
+</section>
+
+</main>
+<footer>
+  <p><strong>Historia, Geografía y Ciencias Sociales — 2° Año Medio</strong><br>
+  Unidad 1: Crisis, totalitarismo y guerra en la primera mitad del siglo XX<br>
+  Currículum Nacional MINEDUC Chile · Profesora Tatiana Carrasco · Liceo Municipal de Nacimiento · 2° Araucaría</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
